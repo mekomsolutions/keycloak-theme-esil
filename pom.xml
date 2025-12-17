@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.ozonehis</groupId>
+    <artifactId>keycloak-theme-esil</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>Keycloak Theme ESIL</name>
+    <description>Custom Keycloak theme for ESIL</description>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <keycloak.version>26.4.5</keycloak.version>
+    </properties>
+
+    <url>https://github.com/mekomsolutions/keycloak-theme-esil</url>
+
+    <repositories>
+        <repository>
+            <id>mks-nexus-public</id>
+            <url>https://nexus.mekomsolutions.net/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.keycloak</groupId>
+                <artifactId>theme-verifier-maven-plugin</artifactId>
+                <version>${keycloak.version}</version>
+                <executions>
+                    <execution>
+                        <id>verify-theme</id>
+                        <goals>
+                            <goal>verify-theme</goal>
+                        </goals>
+                        <configuration>
+                            <validateMessageFormatQuotes>true</validateMessageFormatQuotes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>mks-nexus-public-releases</id>
+            <name>Mekom Solutions Nexus repo for releases</name>
+            <url>https://nexus.mekomsolutions.net/repository/maven-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>mks-nexus-public-snapshots</id>
+            <name>Mekom Solutions Nexus repo for snapshots</name>
+            <url>https://nexus.mekomsolutions.net/repository/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
