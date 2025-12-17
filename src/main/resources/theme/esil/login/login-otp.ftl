@@ -7,6 +7,7 @@
     <#if section="header">
         ${msg("doLogIn")}
     <#elseif section="form">
+    <div class="card login-card">
         <form id="kc-otp-login-form" class="${properties.kcFormClass!}" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
             <input id="selectedCredentialId" type="hidden" name="selectedCredentialId" value="${otpLogin.selectedCredentialId!''}">
             <#if otpLogin.userOtpCredentials?size gt 1>
@@ -31,6 +32,7 @@
 
             <@buttons.loginButton />
         </form>
+    </div>
         <script>
             function toggleOTP(index, value) {
                 // select the clicked OTP credential

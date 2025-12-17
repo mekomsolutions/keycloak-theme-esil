@@ -43,8 +43,8 @@
 
 <#macro input name label value="" required=false autocomplete="off" fieldName=name error=kcSanitize(messagesPerField.get(fieldName))?no_esc autofocus=false>
   <@group name=name label=label error=error required=required>
-    <span class="${properties.kcInputClass} <#if error?has_content>${properties.kcError}</#if>">
-        <input id="${name}" name="${name}" value="${value}" type="text" autocomplete="${autocomplete}" <#if autofocus>autofocus</#if>
+    <span <#if error?has_content>${properties.kcError}</#if>">
+        <input class="login-input-style text-input" id="${name}" name="${name}" value="${value}" type="text" autocomplete="${autocomplete}" <#if autofocus>autofocus</#if>
                 <#if autocomplete == "one-time-code">inputmode="numeric"</#if>
                 aria-invalid="<#if error?has_content>true</#if>"/>
         <@errorIcon error=error/>
