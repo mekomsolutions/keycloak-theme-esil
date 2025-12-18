@@ -23,6 +23,7 @@ services:
     ports:
       - "9094:8080"
     volumes:
+      - './imports:/opt/keycloak/data/import'
       - './target/keycloak-theme-esil-1.0.0-SNAPSHOT.jar:/opt/keycloak/providers/keycloak-theme-esil-1.0.0-SNAPSHOT.jar'
     depends_on:
       - postgres
