@@ -8,6 +8,9 @@
         ${msg("doLogIn")}
     <#elseif section="form">
     <div class="card login-card">
+    <div class="login-center">
+      <img src="${url.resourcesPath}/img/logo.png" class="center-logo" />
+    </div>
         <form id="kc-otp-login-form" class="${properties.kcFormClass!}" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
             <input id="selectedCredentialId" type="hidden" name="selectedCredentialId" value="${otpLogin.selectedCredentialId!''}">
             <#if otpLogin.userOtpCredentials?size gt 1>

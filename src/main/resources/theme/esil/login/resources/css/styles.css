@@ -124,6 +124,12 @@ button:hover {
   border-radius: 1rem;
 }
 
+.configure-otp-card {
+  width: 36rem;
+  padding: 2.5rem;
+  border-radius: 1rem;
+}
+
 .login-center {
   text-align: center;
   margin-top: 1.5rem;

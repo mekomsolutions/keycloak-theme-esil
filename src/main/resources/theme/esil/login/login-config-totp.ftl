@@ -4,10 +4,13 @@
 <@layout.registrationLayout displayMessage=!messagesPerField.existsError('totp','userLabel'); section>
 <!-- template: login-config-totp.ftl -->
 <div class="card login-card">
+    <div class="login-center">
+      <img src="${url.resourcesPath}/img/logo.png" class="center-logo" />
+    </div>
     <#if section = "header">
         ${msg("loginTotpTitle")}
     <#elseif section = "form">
-        <ol id="kc-totp-settings" class="pf-v5-c-list pf-v5-u-mb-md">
+        <ol id="kc-totp-settings" class="pf-v5-c-list pf-v5-u-mb-md label">
             <li>
                 <p>${msg("loginTotpStep1")}</p>
 
@@ -52,7 +55,7 @@
             </li>
         </ol>
 
-        <form action="${url.loginAction}" class="${properties.kcFormClass!}" id="kc-totp-settings-form" method="post" novalidate="novalidate">
+        <form action="${url.loginAction}" class="${properties.kcFormClass!} c" id="kc-totp-settings-form" method="post" novalidate="novalidate">
             <div class="${properties.kcFormGroupClass!}">
                 <div class="${properties.kcLabelClass!}">
                     <label class="pf-v5-c-form__label label" for="form-vertical-name">
@@ -96,7 +99,7 @@
                 </#if>
             </div>
 
-            <div class="${properties.kcFormGroupClass!}">
+            <div class="${properties.kcFormGroupClass!} label">
                 <@passwordCommons.logoutOtherSessions/>
             </div>
 
