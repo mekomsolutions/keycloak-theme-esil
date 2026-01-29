@@ -10,6 +10,7 @@
 
 html {
   font-size: 16px;
+  height: 100%;
 }
 
 body {
@@ -103,11 +104,12 @@ button:hover {
 }
 
 .login-container {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 100vh; /* make container span viewport so justify-content centers vertically */
+  padding: 2rem 0; /* add vertical spacing so forms don't start at the very top edge */
 }
 
 .card {
@@ -122,6 +124,14 @@ button:hover {
   width: 23rem;
   padding: 2.5rem;
   border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.configure-otp-card {
+  width: 36rem;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
 }
 
 .login-center {
@@ -568,6 +578,17 @@ a#kc-current-locale-link {
     right: 20px;
     text-align: right;
     z-index: 9999;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 1rem 0; /* reduce padding on smaller screens */
+  }
+
+  .login-card,
+  .configure-otp-card {
+    margin-bottom: 1rem; /* smaller bottom spacing on narrow viewports */
   }
 }
 
